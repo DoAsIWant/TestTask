@@ -7,6 +7,7 @@ import { ImageCard } from "../components/ImageCard";
 import { Error } from "../components/Error";
 
 export const MainScreen = ({ navigation }) => {
+    
   const onNavigatePhotos = (photoUrl) => {
     navigation.navigate("Photo", photoUrl);
   };

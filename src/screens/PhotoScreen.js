@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet } from "react-native";
 
 export const PhotoScreen = ({ route }) => {
-  return <Image style={styles.image} source={{ uri: route.params }}></Image>;
+  return <Image style={styles.image} source={{ uri: route.params }}/>
 };
 
 const styles = StyleSheet.create({

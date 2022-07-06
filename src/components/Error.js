@@ -5,12 +5,12 @@ export const Error = () => {
   return (
     <View style={styles.errorContainer}>
       <Image
-        style={errorImage}
+        style={styles.errorImage}
         source={{
           uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlAXCw6k1joCtqZbK-KKsFGl3Jtn-fvqQMGg&usqp=CAU",
         }}
       />
-      <Text style={errorCaption}>Something went wrong</Text>
+      <Text style={styles.errorCaption}>Something went wrong</Text>
     </View>
   );
 };
@@ -23,10 +23,13 @@ const styles = StyleSheet.create({
   errorImage: {
     width: 300,
     height: 300,
+    borderRadius: 200
   },
 
   errorCaption: {
     fontSize: 22,
-    color: "#6c5ce7"
+    color: "#6c5ce7",
+    paddingTop: 25,
+    textAlign: "center"
   }
 });
