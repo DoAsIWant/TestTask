@@ -5,7 +5,7 @@ import { PhotoScreen } from "../screens/PhotoScreen";
 
 const Stack = createStackNavigator ()
 
-export const Navigate = ()=>{
+export const Router = ()=>{
     return (
         <NavigationContainer>
             <Stack.Navigator>

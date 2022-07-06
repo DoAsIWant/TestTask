@@ -11,21 +11,13 @@ export const myReducer = (state=initialState, action)=>{
         case PHOTOS_LOADED:
             return {
                 ...state,
-                photos: [...photos,action.payload],
-                error: "rrr",
-                smile:true,
+                photos: action.payload,
             };
         case PHOTOS_ERROR:
             return {
                 ...state,
-                error: action.payload.error
-            };
-        case "PHOTO":
-            return{
-                ...state,
-                photos: action.payload,
-                err: true,
-            }    
+                error: action.payload,
+            };  
         default:
             return state
     }

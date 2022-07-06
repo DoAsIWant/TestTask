@@ -3,33 +3,32 @@ import {StyleSheet,ScrollView} from "react-native"
 import {useDispatch,useSelector} from "react-redux"
 import { loadPhotos } from "../store/actions/actions";
 import { ImageCard } from "../components/ImageCard";
-import { connect } from 'react-redux';
+import {Error} from "../components/Error"
 
 
 export const MainScreen = ({navigation})=>{
 
-const onNavigatePhotos = (image)=>{
-    navigation.navigate("Photo", image)
+const onNavigatePhotos = (photoUrl)=>{
+    navigation.navigate("Photo", photoUrl)
 }
 
 const dispatch = useDispatch()
-const allphotos = useSelector(state=>{ console.log(state) 
-    return state.photos})
-const error = useSelector(state=>state.error)
+const {photos,error} = useSelector(state=>state)
+
 
 useEffect(()=>{
    dispatch(loadPhotos())
 },[])
 
     if(error) {
-        return <Error></Error>
+        return <Error/>
     }
 
     return ( 
  
-        <ScrollView styles={styles.container}>   
+        <ScrollView contentContainerStyle = {styles.container}>   
         { 
-            allphotos.map(el=>{
+            photos.map(el=>{
 
                 return <ImageCard
                             key={el.id}
@@ -46,13 +45,13 @@ useEffect(()=>{
 }
 
 
-
 const styles = StyleSheet.create({
     container: {
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        flexDirection: "row",
         width: "100%",
-        paddingTop: 100,
+        maxWidth: 1000,
+        paddingTop: 50,
     }    
 });
